@@ -7,6 +7,11 @@ import os  # Importando para acessar as variáveis de ambiente
 
 # Obter o token do GitHub Secrets
 token = os.getenv('DISCORD_TOKEN')  # Use o nome do secret configurado no GitHub
+
+# Verificar se o token foi encontrado
+if not token:
+    raise ValueError("Token não encontrado! Verifique se o GitHub Secret 'DISCORD_TOKEN' foi configurado corretamente.")
+
 prefixo = "!"  # Usando um prefixo fixo para o comando
 id_servidor = 123456789012345678  # Insira o ID do servidor desejado
 
