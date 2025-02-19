@@ -6,12 +6,13 @@ from discord.ui import TextInput, Modal
 from dotenv import load_dotenv
 import os
 
-# Carregar as variáveis de ambiente do arquivo .env
+# Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
 
 # Pegar o token do bot a partir da variável de ambiente
-token = os.getenv('DISCORD_TOKEN')
+DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 
+# Configuração do bot
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
@@ -110,4 +111,4 @@ async def criar_canal(ctx):
     await ctx.send(embed=embed, view=view)
 
 # Rodar o bot com seu token
-bot.run(token)
+bot.run(DISCORD_TOKEN)
