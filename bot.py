@@ -92,7 +92,7 @@ async def criar_canal(ctx):
     # Embed de apresentação
     embed = Embed(
         title="Criar Bate Ponto",
-        description="Para criar seu Bate Ponto clique no botçao abaixo 'Criar Bate Ponto'",
+        description="Para criar seu Bate Ponto clique no botão abaixo 'Criar Bate Ponto'",
         color=discord.Color.blue()
     )
 
