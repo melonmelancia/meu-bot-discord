@@ -3,19 +3,23 @@ from discord.ext import commands
 from discord.ui import Button, View
 from discord import Embed
 from discord.ui import TextInput, Modal
-from dotenv import load_dotenv
-import os
+import json
 
-# Carregar variáveis de ambiente do arquivo .env
-load_dotenv()
+# Carregar configurações do arquivo config.json
+with open("config.json", "r") as config_file:
+    config = json.load(config_file)
 
-# Pegar o token do bot a partir da variável de ambiente
-DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
+# Configurações do bot
+token = config["token"]
+prefixo = config["prefixo"]
+id_servidor = config["id_servidor"]
 
-# Configuração do bot
+# Definir os intents para o bot
 intents = discord.Intents.default()
-intents.message_content = True
-bot = commands.Bot(command_prefix="!", intents=intents)
+intents.message_content = True  # Permite que o bot leia o conteúdo das mensagens
+
+# Criação do bot com o prefixo do arquivo config.json
+bot = commands.Bot(command_prefix=prefixo, intents=intents)
 
 # Evento para quando o bot estiver pronto
 @bot.event
@@ -110,5 +114,5 @@ async def criar_canal(ctx):
     # Envia a mensagem com o embed e o botão
     await ctx.send(embed=embed, view=view)
 
-# Rodar o bot com seu token
-bot.run(DISCORD_TOKEN)
+# Rodar o bot com o token do arquivo config.json
+bot.run(token)
