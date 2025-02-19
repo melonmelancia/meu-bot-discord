@@ -49,7 +49,7 @@ class CanalModal(Modal):
         category = discord.utils.get(guild.categories, name="═════ •『BATE PONTO』• ═════")
 
         if category is None:
-            await interaction.response.send_message("Não encontrei a categoria 'Canais'. Certifique-se de que ela existe!", ephemeral=True)
+            await interaction.response.send_message("Não encontrei a categoria mensionada. Certifique-se de que ela existe!", ephemeral=True)
             return
 
         # Adicionar o prefixo fixo antes do nome personalizado
@@ -80,7 +80,7 @@ class CanalModal(Modal):
             await new_channel.send(f"\n{interaction.user.mention}")
 
             # Resposta final com o canal criado
-            await interaction.response.send_message(f'Canal "{new_channel.name}" criado com sucesso na categoria "Canais"!', ephemeral=True)
+            await interaction.response.send_message(f'Canal "{new_channel.name}" criado com sucesso na categoria "═════ •『BATE PONTO』• ═════"!', ephemeral=True)
 
         except Exception as e:
             # Em caso de erro, enviar uma mensagem com o erro
