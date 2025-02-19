@@ -1,14 +1,16 @@
-import os
 import discord
 from discord.ext import commands
 from discord.ui import Button, View
 from discord import Embed
 from discord.ui import TextInput, Modal
-from dotenv import load_dotenv  # Importa a biblioteca dotenv
+from dotenv import load_dotenv
+import os
 
-# Carregar variáveis do arquivo .env
+# Carregar as variáveis de ambiente do arquivo .env
 load_dotenv()
-TOKEN = os.getenv("DISCORD_TOKEN")  # Pega o token do arquivo .env
+
+# Pegar o token do bot a partir da variável de ambiente
+token = os.getenv('DISCORD_TOKEN')
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -108,4 +110,4 @@ async def criar_canal(ctx):
     await ctx.send(embed=embed, view=view)
 
 # Rodar o bot com seu token
-bot.run(TOKEN)  # Agora, o token é carregado do .env
+bot.run(token)
