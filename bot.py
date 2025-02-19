@@ -91,13 +91,13 @@ class CanalModal(Modal):
 async def criar_canal(ctx):
     # Embed de apresentação
     embed = Embed(
-        title="Criar Canal Personalizado",
-        description="Clique no botão abaixo para criar um canal com nome personalizado!",
+        title="Criar Bate Ponto",
+        description="Para criar seu Bate Ponto clique no botçao abaixo 'Criar Bate Ponto'",
         color=discord.Color.blue()
     )
 
     # Botão que irá acionar a criação do canal
-    button = Button(label="Criar Canal", style=discord.ButtonStyle.green)
+    button = Button(label="Criar Bate Ponto", style=discord.ButtonStyle.green)
 
     # Função que será chamada quando o botão for pressionado
     async def button_callback(interaction):
