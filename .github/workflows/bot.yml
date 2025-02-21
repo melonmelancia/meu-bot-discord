@@ -1,9 +1,12 @@
 name: Rodar Bot Discord
 
 on:
+  schedule:
+    - cron: '0 */6 * * *'  # Executa a cada 6 horas
   push:
     branches:
       - main  # Executa o workflow sempre que houver um push na branch main
+  workflow_dispatch:  # Permite disparar manualmente o workflow
 
 jobs:
   build:
